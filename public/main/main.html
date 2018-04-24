@@ -1,0 +1,50 @@
+<div  class="">
+   <br><br>
+       <br>
+       <h5>Vendor Infomation</h5>
+       <br><br>
+       <div class="row">
+        <div class="col m4 input-field">
+          <input type="text"  ng-model="name">
+          <label for=""> serach</label>
+          
+        </div>
+       </div>
+        <ul class="collapsible popout" data-collapsible="accordion">
+                <li ng-repeat="x in vendorData |  filter :name">
+                  <div class="collapsible-header #9e9e9e grey">{{x.companyName}}</div>
+                  <div class="collapsible-body #c5cae9 indigo lighten-4">
+
+                    <ul >
+                        <li > Comapny registration : {{x.companyReg}}</li>
+                        <li> Comapny Email: {{x.companyEmail}}</li>
+                        <li> Conatct (Tel) : {{x.tel}}</li>
+                        <li> Conatct (Mobile) : {{x.mobile}}</li>
+                        <li> Address : {{x.address}}</li>
+                        <li> State : {{x.state}}</li>
+                        <li> City : {{x.city}}</li>
+                        <li> Zip code : {{x.zipCode}}</li>
+                        <li> Country : {{x.Country}}</li>
+                        <li> Type of bussiness  : {{x.typOfBussiness}}</li>
+                        <li> Company profile : <a href="{{x.companyProfile}}" target="blank">profile</a></li>
+                        <li> Authorization letter : <a href="{{x.authorizationLetter}} "  target="blank">profile</a></li>
+                        <li> Company registration : <a href="{{x.copanyRegistration}}"  target="blank">profile</a></li>
+                        <li> GST registration : <a href="{{x.GSTRegistration}}"  target="blank">profile</a></li>
+                        <li> sharholder ID's : <a href="{{x.sharholder}}"  target="blank">profile</a></li>
+                    </ul>
+                    
+
+
+
+                  </div>
+                </li>
+               
+              </ul>
+       
+        <script>
+                $(document).ready(function(){
+                $('.collapsible').collapsible();
+                });
+        </script>
+   
+</div>

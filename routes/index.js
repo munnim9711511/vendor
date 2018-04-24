@@ -16,16 +16,28 @@ router.post("/vendor-data-entry",(req,res,next)=>{
   var gstRegistration = req.files.gstRegistration;
   var sharholdersID = req.files.sharholdersID;
   companyProfile.mv(`public/upload/${req.body.name}companyprofile.pdf`, function(err) {
-    if (err)
-      return res.status(500).send(err);
+   
  
-    res.send('File uploaded!');
+   
   });
   authorizationLetter.mv(`public/upload/${req.body.name}authorizationLetter.pdf`, function(err) {
-    if (err)
-      return res.status(500).send(err);
+  
  
-    res.send('File uploaded!');
+
+  });
+  companyRegistration.mv(`public/upload/${req.body.name}companyRegistration.pdf`, function(err) {
+   
+   
+  });
+  gstRegistration.mv(`public/upload/${req.body.name}gstRegistration.pdf`, function(err) {
+
+ 
+  
+  });
+  sharholdersID.mv(`public/upload/${req.body.name}sharholdersID.pdf`, function(err) {
+    
+ 
+
   });
 
   var vendordb = new vendor({
@@ -48,7 +60,26 @@ router.post("/vendor-data-entry",(req,res,next)=>{
 
 
   });
-  vendordb.save().then(() => console.log('data saved'));
+  vendordb.save();
+  res.redirect('https://docs.mongodb.com/manual/tutorial/install-mongodb-on-linux/');
 });
 
+router.get("/vendor",(req,res,next)=>{
+  res.render("vendor");
+});
+router.get("/vendor-info",(req,res,next)=>{
+  vendor.find({},(err,resp)=>{
+    res.send(resp);
+  });
+});
+router.get("/vendor-info-detail/:id",(req,res,next)=>{
+  const companyID = req.params.id;
+  var data;
+
+  vendor.find({"_id":companyID},(err,resp)=>{
+   
+  });
+
+
+})
 module.exports = router;

@@ -1,0 +1,22 @@
+doctype html
+html(lang='en' ng-app="app")
+  head
+    title Jade
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src='/javascripts/angular.min.js')
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js")
+    script(src="/javascripts/script.js")
+    script(src="/javascripts/main.js")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js")
+
+    
+  
+  body(class="#424242 grey darken-3")
+    .container
+        
+        div(ng-view='')
+
+    
+
+    
